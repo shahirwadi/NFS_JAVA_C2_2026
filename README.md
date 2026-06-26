@@ -133,3 +133,6 @@ What would probably replace it later when we use MongoDB?
 
 Why is throwing CourseNotFoundException better than printing inside CourseService?
 - Throwing CourseNotFoundException is better than printing inside CourseService because the service has no idea who is calling it or how that caller wants to show the error. A console demo might print a plain message. A Spring Boot REST controller would return a 404 JSON response. A frontend might show a toast notification or a modal. If the service printed the error itself, you'd be locked into one fixed behaviour with no way to change it per caller. By throwing the exception, the service just reports what went wrong, and every caller handles it in whatever way makes sense for its context.
+
+Why is CourseOffering a better design than putting start date, end date, and capacity directly inside Course?
+- Putting the variables directly will cause each course to only be used once. However, the exact same course could be offer every month with different capacity in real life situation.
