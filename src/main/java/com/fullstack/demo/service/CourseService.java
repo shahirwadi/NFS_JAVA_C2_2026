@@ -8,8 +8,9 @@ import com.fullstack.demo.model.Instructor;
 import com.fullstack.demo.repository.CourseRepository;
 
 import java.util.List;
-
+//Exercise 3.1
 public class CourseService {
+
     private final CourseRepository courseRepository;
 
     public CourseService(CourseRepository courseRepository) {
