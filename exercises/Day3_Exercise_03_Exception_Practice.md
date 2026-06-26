@@ -124,13 +124,13 @@ The service should throw the exception. The demo class should catch and display 
 
 ## Submission checklist
 
-- [ ] `ExceptionPractice.java` exists.
-- [ ] You created `CourseService` correctly.
-- [ ] You added at least two courses.
-- [ ] You successfully printed one existing course.
-- [ ] You handled `C999` using `try/catch`.
-- [ ] You handled another missing course ID using `try/catch`.
-- [ ] Program does not crash.
+- [/] `ExceptionPractice.java` exists.
+- [/] You created `CourseService` correctly.
+- [/] You added at least two courses.
+- [/] You successfully printed one existing course.
+- [/] You handled `C999` using `try/catch`.
+- [/] You handled another missing course ID using `try/catch`.
+- [/] Program does not crash.
 
 ## README reflection
 

@@ -126,7 +126,10 @@ When getCourseById("C004") is called, which file does the request go to first, s
    The matching `Course` object is found and returned back up the chain.
 
 Why is InMemoryCourseRepository temporary storage?
--Because it stores data inside a LinkedHashMap that only lives in memory while the program is running. The moment  the application stops, everything is gone. 
+- Because it stores data inside a LinkedHashMap that only lives in memory while the program is running. The moment  the application stops, everything is gone. 
 
 What would probably replace it later when we use MongoDB?
--A MongoCourseRepository that implements the same CourseRepository interface, but instead of using a LinkedHashMap, its methods talk to a real MongoDB database. Because both classes implement the same interface.
+- A MongoCourseRepository that implements the same CourseRepository interface, but instead of using a LinkedHashMap, its methods talk to a real MongoDB database. Because both classes implement the same interface.
+
+Why is throwing CourseNotFoundException better than printing inside CourseService?
+- Throwing CourseNotFoundException is better than printing inside CourseService because the service has no idea who is calling it or how that caller wants to show the error. A console demo might print a plain message. A Spring Boot REST controller would return a 404 JSON response. A frontend might show a toast notification or a modal. If the service printed the error itself, you'd be locked into one fixed behaviour with no way to change it per caller. By throwing the exception, the service just reports what went wrong, and every caller handles it in whatever way makes sense for its context.
