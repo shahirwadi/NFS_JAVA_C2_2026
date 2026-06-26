@@ -28,3 +28,11 @@ public class CodeFlowPractice {
 
      }
 }
+
+//-----------------------------------------------------------------------------
+//Task D - Add trace comments
+// 1. This CodeFlowPractice calls CourseService.
+// 2. CourseService validates the course.
+// 3. CourseService asks CourseRepository to save or find the course.
+// 4. InMemoryCourseRepository stores or finds the course in a LinkedHashMap.
+// 5. The Course object is returned back up to this demo class.

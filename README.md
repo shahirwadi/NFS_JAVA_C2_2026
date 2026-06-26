@@ -110,3 +110,23 @@ Participants may use AI tools to:
 
 Participants must always review, verify, test, and understand any AI-generated output. No passwords, API keys, tokens, private keys, or confidential data should be placed into AI prompts.
 
+## README reflection
+When getCourseById("C004") is called, which file does the request go to first, second, and third?
+
+1. **First → `CourseService.java`**
+   The demo class calls `courseService.getCourseById("C004")`.
+   The request enters the service layer first.
+
+2. **Second → `CourseRepository.java`**
+   `CourseService` calls the repository interface method `findById("C004")`.
+   The request passes through the interface contract.
+
+3. **Third → `InMemoryCourseRepository.java`**
+   The actual implementation executes the lookup from the in-memory data structure.
+   The matching `Course` object is found and returned back up the chain.
+
+Why is InMemoryCourseRepository temporary storage?
+-Because it stores data inside a LinkedHashMap that only lives in memory while the program is running. The moment  the application stops, everything is gone. 
+
+What would probably replace it later when we use MongoDB?
+-A MongoCourseRepository that implements the same CourseRepository interface, but instead of using a LinkedHashMap, its methods talk to a real MongoDB database. Because both classes implement the same interface.
