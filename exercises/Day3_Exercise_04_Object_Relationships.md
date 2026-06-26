@@ -167,13 +167,13 @@ private Instructor instructor;
 
 ## Submission checklist
 
-- [ ] You created two instructors.
-- [ ] You created two courses.
-- [ ] You assigned instructors to courses.
-- [ ] You created two course offerings.
-- [ ] You printed all course offerings.
-- [ ] Your code comments explain composition.
-- [ ] Code compiles and runs.
+- [/] You created two instructors.
+- [/] You created two courses.
+- [/] You assigned instructors to courses.
+- [/] You created two course offerings.
+- [/] You printed all course offerings.
+- [/] Your code comments explain composition.
+- [/] Code compiles and runs.
 
 ## README reflection
 
