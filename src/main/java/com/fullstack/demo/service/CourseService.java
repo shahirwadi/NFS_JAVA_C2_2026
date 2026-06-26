@@ -6,9 +6,10 @@ import com.fullstack.demo.exception.InvalidCourseException;
 import com.fullstack.demo.model.Course;
 import com.fullstack.demo.model.Instructor;
 import com.fullstack.demo.repository.CourseRepository;
-
+//Task A - Add required import
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CourseService {
     private final CourseRepository courseRepository;
@@ -139,4 +140,42 @@ public class CourseService {
     private boolean isBlank(String value) {
         return value == null || value.trim().isEmpty();
     }
+    
+    // Task B - Write this method using a normal loop
+    public List<Course> searchByLevelUsingLoop(String level) {
+        String safeLevel = level == null ? "" : level.trim();
+
+        List<Course> results = new ArrayList<>();
+
+        for (Course course : courseRepository.findAll()) {
+            if (course.getLevel().equalsIgnoreCase(safeLevel)) {
+                results.add(course);
+            }
+        }
+
+        return results;
+    }
+
+    //Optional Task D - Write the stream version
+    public List<Course> searchByLevelUsingStream(String level) {
+        String safeLevel = level == null ? "" : level.trim();
+
+        return courseRepository.findAll()
+                .stream()
+                .filter(course -> course.getLevel().equalsIgnoreCase(safeLevel))
+                .toList();
+    }
+
+    // Optional Task E - Add search by duration
+    public List<Course> searchByMinimumDurationUsingLoop(int minimumHours) {
+        List<Course> results = new ArrayList<>();
+
+        for (Course course : courseRepository.findAll()) {
+            if (course.getDurationHours() >= minimumHours) {
+                results.add(course);
+            }
+        }
+
+        return results;
+    }    
 }

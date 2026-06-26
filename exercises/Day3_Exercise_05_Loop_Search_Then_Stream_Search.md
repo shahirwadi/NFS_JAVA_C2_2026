@@ -170,13 +170,13 @@ course.getLevel().equalsIgnoreCase(safeLevel)
 
 ## Submission checklist
 
-- [ ] `searchByLevelUsingLoop()` is added to `CourseService`.
-- [ ] The method uses `ArrayList`.
-- [ ] The method uses a normal `for` loop.
-- [ ] The method handles `null` safely.
-- [ ] The demo class creates at least four courses.
-- [ ] The demo class prints only matching courses.
-- [ ] Code compiles and runs.
+- [/] `searchByLevelUsingLoop()` is added to `CourseService`.
+- [/] The method uses `ArrayList`.
+- [/] The method uses a normal `for` loop.
+- [/] The method handles `null` safely.
+- [/] The demo class creates at least four courses.
+- [/] The demo class prints only matching courses.
+- [/] Code compiles and runs.
 
 ## README reflection
 

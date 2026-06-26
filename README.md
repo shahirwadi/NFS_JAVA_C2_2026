@@ -136,3 +136,9 @@ Why is throwing CourseNotFoundException better than printing inside CourseServic
 
 Why is CourseOffering a better design than putting start date, end date, and capacity directly inside Course?
 - Putting the variables directly will cause each course to only be used once. However, the exact same course could be offer every month with different capacity in real life situation.
+
+Which version is easier to understand: loop or stream? Why?
+- loop is easier because you can visualize the implementation easily
+
+What does filter() do in a stream?
+- filter() goes through every item in the stream and keeps only the ones where the condition inside is true
