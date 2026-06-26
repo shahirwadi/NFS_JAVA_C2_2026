@@ -303,16 +303,16 @@ The service should use the repository.
 
 ## Submission checklist
 
-- [ ] `StudentRepository.java` created.
-- [ ] `InMemoryStudentRepository.java` created.
-- [ ] `StudentNotFoundException.java` created.
-- [ ] `StudentService.java` created.
-- [ ] Demo class created.
-- [ ] At least 3 students are registered.
-- [ ] `getStudentById()` works for existing student.
-- [ ] Missing student is handled using exception.
-- [ ] Search by name works using loop.
-- [ ] Code compiles and runs.
+- [/] `StudentRepository.java` created.
+- [/] `InMemoryStudentRepository.java` created.
+- [/] `StudentNotFoundException.java` created.
+- [/] `StudentService.java` created.
+- [/] Demo class created.
+- [/] At least 3 students are registered.
+- [/] `getStudentById()` works for existing student.
+- [/] Missing student is handled using exception.
+- [/] Search by name works using loop.
+- [/] Code compiles and runs.
 
 ## README reflection
 

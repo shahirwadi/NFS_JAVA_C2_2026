@@ -142,3 +142,9 @@ Which version is easier to understand: loop or stream? Why?
 
 What does filter() do in a stream?
 - filter() goes through every item in the stream and keeps only the ones where the condition inside is true
+
+How is StudentService similar to CourseService?
+- Both have a same pattern and only consist of the business logic
+
+Which file stores students temporarily while the program is running?
+- InMemoryStudentRepository uses a LinkedHashMap to hold students in memory while the program runs.
