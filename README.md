@@ -110,3 +110,10 @@ Participants may use AI tools to:
 
 Participants must always review, verify, test, and understand any AI-generated output. No passwords, API keys, tokens, private keys, or confidential data should be placed into AI prompts.
 
+## README Reflection
+
+1. How is a JavaScript array similar to Java ArrayList?
+- Both are dynamic and dont need to declared fixed size
+
+2. Why are arrow functions important before learning React?
+- React is built around arrow functions in almost every pattern
