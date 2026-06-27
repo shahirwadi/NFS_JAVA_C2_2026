@@ -140,3 +140,18 @@ Exercise 4
 
 6. What does the DOM allow JavaScript to do?
 - The DOM allows JavaScript to dynamically access, create, modify, and remove HTML elements on a page after it has loaded.
+
+7. What does async mean?
+- code parts which may take time to complete
+
+8. What does await do?
+- Wait fora a task to finish before moving to the next line
+
+9. What does fetch do?
+- sends a request and returns a response
+
+10. Why do we use fetch before connecting to a real backend API?
+- to simulate how we will request data later in a real backend API
+
+11. Why should this exercise be run using Live Server?
+- The `fetch("students.json")` may not work properly because the browser may block file loading if not using Live Server
