@@ -117,3 +117,11 @@ Participants must always review, verify, test, and understand any AI-generated o
 
 2. Why are arrow functions important before learning React?
 - React is built around arrow functions in almost every pattern
+
+Exercise 4
+
+1. What is the difference between filter, find, and map?
+2. Which four array methods change the original array?
+3. What does push return?
+4. What does pop return?
+5. What is the difference between shift and unshift?
