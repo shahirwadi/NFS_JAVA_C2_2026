@@ -121,7 +121,22 @@ Participants must always review, verify, test, and understand any AI-generated o
 Exercise 4
 
 1. What is the difference between filter, find, and map?
+- filter returns a new array of all items that match the condition
+- find returns one item (the first match), not an array
+- map returns a new array where every item has been transformed
+
 2. Which four array methods change the original array?
+- push, pop, shift, unshift
+
 3. What does push return?
+- The new length of the array after the item is added.
+
 4. What does pop return?
+- The removed item (the object that was at the end of the array).
+
 5. What is the difference between shift and unshift?
+- shift removes the first item and returns it
+- unshift adds an item to the beginning and returns the new array length
+
+6. What does the DOM allow JavaScript to do?
+- The DOM allows JavaScript to dynamically access, create, modify, and remove HTML elements on a page after it has loaded.
