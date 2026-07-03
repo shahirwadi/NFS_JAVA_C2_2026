@@ -22,4 +22,17 @@ const events = [
     }
 ];
 
-// Write your code below
+const eventList = document.querySelector("#eventList");
+const statusText = document.querySelector("#statusText");
+
+events.forEach((event) => {
+    const listItem = document.createElement("li");
+    const limitedSeatsMessage = event.availableSeats < 50
+        ? " - Limited seats"
+        : "";
+
+    listItem.textContent = `${event.title} - ${event.date} - ${event.venue} - ${event.availableSeats} seats available${limitedSeatsMessage}`;
+    eventList.appendChild(listItem);
+});
+
+statusText.textContent = `${events.length} event(s) displayed.`;
