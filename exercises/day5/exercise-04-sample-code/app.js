@@ -4,14 +4,31 @@ const loadButton = document.querySelector("#loadButton");
 const statusText = document.querySelector("#statusText");
 const eventList = document.querySelector("#eventList");
 
-function displayEvents(events) {
-    eventList.replaceChildren();
+function showStatus(message) {
+    statusText.textContent = message;
+}
 
-    events.forEach((event) => {
+function formatEvent(event) {
+    return `${event.title} - ${event.date} - ${event.venue} - ${event.availableSeats} seats available`;
+}
+
+function renderEvents(events) {
+    eventList.innerHTML = "";
+
+    events.forEach(event => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${event.title} - ${event.date} - ${event.venue} - ${event.availableSeats} seats available`;
+        listItem.textContent = formatEvent(event);
         eventList.appendChild(listItem);
     });
+}
+
+function renderSingleEvent(event) {
+    eventList.innerHTML = "";
+
+    const listItem = document.createElement("li");
+    listItem.textContent = formatEvent(event);
+
+    eventList.appendChild(listItem);
 }
 
 async function getJson(url) {
@@ -34,64 +51,65 @@ async function getJson(url) {
 }
 
 async function loadEvents() {
-    statusText.textContent = "Loading events...";
-    eventList.replaceChildren();
-    loadButton.disabled = true;
+    showStatus("Loading events...");
 
     try {
-        const events = await getJson(`${API_BASE_URL}/events`);
-        displayEvents(events);
-        statusText.textContent = `${events.length} event(s) loaded successfully.`;
+        const data = await getJson(`${API_BASE_URL}/events`);
+        renderEvents(data);
+        showStatus(`${data.length} event(s) loaded successfully.`);
     } catch (error) {
-        statusText.textContent = `Unable to load events: ${error.message}`;
-    } finally {
-        loadButton.disabled = false;
+        showStatus(`Unable to load events: ${error.message}`);
     }
 }
 
-loadButton.addEventListener("click", loadEvents);
+async function searchEventById(event) {
+    event.preventDefault();
 
-// Challenge: create controls for finding one event without editing index.html.
-const searchInput = document.createElement("input");
-searchInput.id = "eventIdInput";
-searchInput.type = "text";
-searchInput.placeholder = "Enter event ID, for example EV001";
-searchInput.setAttribute("aria-label", "Event ID");
-
-const searchButton = document.createElement("button");
-searchButton.type = "button";
-searchButton.textContent = "Find Event";
-
-loadButton.insertAdjacentElement("afterend", searchInput);
-searchInput.insertAdjacentElement("afterend", searchButton);
-
-async function findEvent() {
-    const eventId = searchInput.value.trim().toUpperCase();
+    const eventId = document.querySelector("#eventIdInput").value.trim().toUpperCase();
 
     if (!eventId) {
-        eventList.replaceChildren();
-        statusText.textContent = "Enter an event ID before searching.";
+        showStatus("Enter an event ID before searching.");
+        eventList.innerHTML = "";
         return;
     }
 
-    statusText.textContent = `Searching for ${eventId}...`;
-    eventList.replaceChildren();
-    searchButton.disabled = true;
+    showStatus(`Searching for ${eventId}...`);
 
     try {
-        const event = await getJson(`${API_BASE_URL}/events/${encodeURIComponent(eventId)}`);
-        displayEvents([event]);
-        statusText.textContent = `Event ${eventId} loaded successfully.`;
+        const data = await getJson(`${API_BASE_URL}/events/${encodeURIComponent(eventId)}`);
+        renderSingleEvent(data);
+        showStatus(`Event ${eventId} loaded successfully.`);
     } catch (error) {
-        statusText.textContent = `Unable to find event: ${error.message}`;
-    } finally {
-        searchButton.disabled = false;
+        showStatus(`Unable to find event: ${error.message}`);
     }
 }
 
-searchButton.addEventListener("click", findEvent);
-searchInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-        findEvent();
-    }
-});
+function createSearchForm() {
+    const searchForm = document.createElement("form");
+    searchForm.id = "searchForm";
+
+    const label = document.createElement("label");
+    label.setAttribute("for", "eventIdInput");
+    label.textContent = "Search Event by ID: ";
+
+    const input = document.createElement("input");
+    input.id = "eventIdInput";
+    input.name = "eventIdInput";
+    input.type = "text";
+    input.placeholder = "Example: EV001";
+
+    const button = document.createElement("button");
+    button.type = "submit";
+    button.textContent = "Search";
+
+    searchForm.appendChild(label);
+    searchForm.appendChild(input);
+    searchForm.appendChild(button);
+
+    eventList.before(searchForm);
+
+    searchForm.addEventListener("submit", searchEventById);
+}
+
+loadButton.addEventListener("click", loadEvents);
+createSe searchForm();
