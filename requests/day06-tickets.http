@@ -1,0 +1,39 @@
+
+### 1. Health check - expected: 200 OK
+GET http://localhost:8080/api/health
+
+### 2. About endpoint - expected: 200 OK
+GET http://localhost:8080/api/about
+
+### 3. Get all tickets - expected: 200 OK
+GET http://localhost:8080/api/tickets
+
+### 4. Get an existing ticket - expected: 200 OK
+GET http://localhost:8080/api/tickets/T001
+
+### 5. Get a missing ticket - expected: 404 Not Found
+GET http://localhost:8080/api/tickets/T999
+
+### 6. Create a valid ticket - expected: 201 Created
+POST http://localhost:8080/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Printer not responding",
+  "description": "The office printer is showing as offline.",
+  "category": "Hardware",
+  "priority": "MEDIUM",
+  "createdBy": "amir@example.com"
+}
+
+### 7. Create an invalid ticket - expected: 400 Bad Request
+POST http://localhost:8080/api/tickets
+Content-Type: application/json
+
+{
+  "title": "",
+  "description": "",
+  "category": "",
+  "priority": "",
+  "createdBy": ""
+}
