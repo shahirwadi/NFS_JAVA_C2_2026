@@ -25,3 +25,27 @@ Content-Type: application/json
     "status": "",
     "location": ""
   }
+
+### Create a valid ticket
+POST http://localhost:8080/api/tickets
+Content-Type: application/json
+
+{
+  "title": "VPN connection not working",
+  "description": "User cannot connect to company VPN from home.",
+  "category": "Network",
+  "priority": "MEDIUM",
+  "createdBy": "siti@example.com"
+}
+
+### Invalid Request Example
+POST http://localhost:8080/api/tickets
+Content-Type: application/json
+
+{
+  "title": "",
+  "description": "",
+  "category": "",
+  "priority": "",
+  "createdBy": ""
+}

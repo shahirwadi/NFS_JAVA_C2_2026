@@ -1,16 +1,18 @@
 package com.example.assettracker.service;
 
+import com.example.assettracker.dto.CreateTicketRequest;
 import com.example.assettracker.dto.TicketResponse;
 import com.example.assettracker.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class TicketService {
 
-    private final List<TicketResponse> tickets = List.of(
+    private final List<TicketResponse> tickets = new ArrayList<>(List.of(
         new TicketResponse(
             "T001",
             "Cannot access email",
@@ -41,7 +43,7 @@ public class TicketService {
             "john@example.com",
             LocalDate.of(2026, 7, 4)
         )
-    );
+    ));
 
     public List<TicketResponse> getAllTickets() {
         return tickets;
@@ -54,5 +56,25 @@ public class TicketService {
             .orElseThrow(() -> new ResourceNotFoundException(
                 "Ticket " + id + " was not found"
             ));
+    }
+
+    public TicketResponse createTicket(CreateTicketRequest request) {
+        TicketResponse created = new TicketResponse(
+            createNextId(),
+            request.getTitle().trim(),
+            request.getDescription().trim(),
+            request.getCategory().trim(),
+            request.getPriority().trim(),
+            "OPEN",
+            request.getCreatedBy().trim(),
+            LocalDate.now()
+        );
+
+        tickets.add(created);
+        return created;
+    }
+
+    private String createNextId() {
+        return "T" + String.format("%03d", tickets.size() + 1);
     }
 }
