@@ -1,6 +1,7 @@
 package com.example.assettracker.service;
 
 import com.example.assettracker.dto.TicketResponse;
+import com.example.assettracker.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -44,5 +45,14 @@ public class TicketService {
 
     public List<TicketResponse> getAllTickets() {
         return tickets;
+    }
+
+    public TicketResponse getTicketById(String id) {
+        return tickets.stream()
+            .filter(ticket -> ticket.getId().equalsIgnoreCase(id))
+            .findFirst()
+            .orElseThrow(() -> new ResourceNotFoundException(
+                "Ticket " + id + " was not found"
+            ));
     }
 }
