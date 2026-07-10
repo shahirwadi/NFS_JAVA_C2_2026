@@ -8,11 +8,24 @@ GET http://localhost:8080/api/assets
 
 ### Get one asset
 # Replace the ID below with an actual ID returned by GET /api/assets
-GET http://localhost:8080/api/assets/REPLACE_WITH_REAL_ID
+GET http://localhost:8080/api/assets/6a50976fdc292efb8000ad0e
 
 
 ### Get missing asset
 GET http://localhost:8080/api/assets/000000000000000000000000
+
+
+### Get all tickets from MongoDB
+GET http://localhost:8080/api/tickets
+
+
+### Get one ticket
+# Replace the ID below with an actual ID returned by GET /api/tickets
+GET http://localhost:8080/api/tickets/6a506b3be6726dbbf375755e
+
+
+### Get missing ticket
+GET http://localhost:8080/api/tickets/000000000000000000000000
 
 
 ### Create a valid asset
@@ -39,3 +52,12 @@ Content-Type: application/json
   "serialNumber": "",
   "location": ""
 }
+
+### How to confirmed the data came from MongoDB
+first check the tickets collection in MongoDB Compass under support_desk_db. 
+The ticket document had the MongoDB _id value 6a506b3be6726dbbf375755e.
+
+Then I called GET http://localhost:8080/api/tickets in the Spring Boot API. 
+The response returned the same ticket data and the same MongoDB id. 
+This confirms the API is reading ticket data from MongoDB through TicketRepository, 
+not from a hardcoded in-memory list.
