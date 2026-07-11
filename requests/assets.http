@@ -21,7 +21,7 @@ GET http://localhost:8080/api/assets?status=AVAILABLE
 GET http://localhost:8080/api/assets?category=Phone
 
 ### Filter assets by location
-GET http://localhost:8080/api/assets?location=HQ%20Level%67
+GET http://localhost:8080/api/assets?location=HQ%20Level%203
 
 ### Get paged assets
 GET http://localhost:8080/api/assets/paged?page=0&size=5
