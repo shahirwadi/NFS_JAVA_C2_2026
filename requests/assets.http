@@ -23,8 +23,11 @@ GET http://localhost:8080/api/assets?category=Phone
 ### Filter assets by location
 GET http://localhost:8080/api/assets?location=HQ%20Level%203
 
-### Get paged assets
+### Get first page of assets (page numbers start at 0)
 GET http://localhost:8080/api/assets/paged?page=0&size=5
+
+### Get second page of assets
+GET http://localhost:8080/api/assets/paged?page=1&size=5
 
 ### Get paged assets sorted by name in descending order
 GET http://localhost:8080/api/assets/paged?page=0&size=5&sortBy=name&direction=desc

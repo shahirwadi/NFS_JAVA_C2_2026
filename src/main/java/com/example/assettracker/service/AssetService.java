@@ -52,11 +52,6 @@ public class AssetService {
     }
 
     public Page<AssetResponse> getAssetsPaged(int page, int size, String sortBy, String direction) {
-        // Implement pagination logic here using the repository
-        // For example, you can use Spring Data's Pageable and PageRequest
-        // to fetch a page of assets from the database.
-        // This is a placeholder implementation.
-
         Sort sort = direction.equalsIgnoreCase("desc") 
                 ? Sort.by(sortBy).descending() 
                 : Sort.by(sortBy).ascending();

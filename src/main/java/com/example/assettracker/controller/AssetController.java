@@ -53,7 +53,7 @@ public class AssetController {
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "5") int size,
         @RequestParam(defaultValue = "assetTag") String sortBy,
-        @RequestParam(defaultValue = "asc") String direction
+        @RequestParam(defaultValue = "desc") String direction
     ) {
         return assetService.getAssetsPaged(page, size, sortBy, direction);
     }
