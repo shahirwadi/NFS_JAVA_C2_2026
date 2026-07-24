@@ -1,7 +1,7 @@
 import LoadingMessage from './LoadingMessage.jsx';
 import ErrorMessage from './ErrorMessage.jsx';
 
-export default function ApiInfoCard({ loading, error, apiInfo, apiDocs }) {
+export default function ApiInfoCard({ loading, error, apiInfo }) {
   return (
     <section className="card api-card">
       <div className="section-heading">
@@ -14,10 +14,8 @@ export default function ApiInfoCard({ loading, error, apiInfo, apiDocs }) {
 
       {!loading && !error && apiInfo && (
         <div className="api-info-grid">
-          <InfoItem label="Application" value={apiInfo.application} />
+          <InfoItem label="API name" value={apiInfo.application} />
           <InfoItem label="Version" value={apiInfo.version} />
-          <InfoItem label="Status" value={apiInfo.status} />
-          <InfoItem label="Documented Endpoints" value={apiDocs?.endpoints?.length ?? 0} />
         </div>
       )}
     </section>
