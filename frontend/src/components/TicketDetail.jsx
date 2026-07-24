@@ -2,6 +2,15 @@ import PriorityBadge from './PriorityBadge.jsx';
 import StatusBadge from './StatusBadge.jsx';
 
 export default function TicketDetail({ ticket }) {
+  if (!ticket) {
+    return (
+      <section className="card">
+        <h2>Selected Ticket</h2>
+        <p className="empty-state">Select filters that include a ticket.</p>
+      </section>
+    );
+  }
+
   return (
     <section className="card">
       <h2>Selected Ticket</h2>

@@ -10,6 +10,9 @@ export default function TicketList({
     <section className="card">
       <h2>Tickets</h2>
       <div className="ticket-list">
+        {tickets.length === 0 && (
+          <p className="empty-state">No tickets match these filters.</p>
+        )}
         {tickets.map((ticket) => (
           <button
             className={`ticket-row ${
