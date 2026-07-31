@@ -248,12 +248,44 @@ label {
 }
 
 input,
-select {
+select,
+textarea {
   width: 100%;
   border: 1px solid #ccd6e3;
   border-radius: 12px;
   padding: 12px;
   background: #fbfcff;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.ticket-form {
+  margin-top: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.form-grid-full {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.success-message {
+  margin-top: 18px;
+  background: #dcfce7;
+  color: #166534;
 }
 
 .workspace-grid {
@@ -457,5 +489,13 @@ code {
   .endpoint-row {
     grid-template-columns: 1fr;
     display: grid;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid-full {
+    grid-column: auto;
   }
 }

@@ -5,6 +5,7 @@ import DashboardPage from './pages/DashboardPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import AssetsPage from './pages/AssetsPage.jsx';
 import AssetFormPage from './pages/AssetFormPage.jsx';
+import TicketFormPage from './pages/TicketFormPage.jsx';
 import ReportsPage from './pages/ReportsPage.jsx';
 import DocsPage from './pages/DocsPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="assets" element={<AssetsPage />} />
         <Route path="assets/new" element={<AssetFormPage />} />
         <Route path="assets/:assetId/edit" element={<AssetFormPage />} />
+        <Route path="tickets/new" element={<TicketFormPage />} />
         <Route path="reports" element={<ReportsPage />} />
       </Route>
 
